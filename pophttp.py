@@ -96,7 +96,6 @@ def server_loop(address, handler):
         try:
             if packet.code == lifx.Message.Light_SetPower.code:
                 if powerState != packet.level:
-                    time.sleep(20)
                     handler.handle_msg(address, packet)
                     powerState = packet.level
         except Exception as err:
